@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logu Bartending</title>
-
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
 </head>
+
 <body>
 
 <nav class="navbar">
@@ -31,35 +29,31 @@
 
 <section class="section">
   <h2>Signature Cocktails</h2>
-
-  <div class="search-bar">
-    <input type="text" id="cocktailSearch" placeholder="Search cocktails by name or ingredient...">
-  </div>
-
-  <div class="cards" id="cocktailCards">
-    <!-- Dynamic cocktail cards will be injected by JS -->
+  <div class="cards">
+    <a href="cocktail.html?name=Mojito" class="card">Mojito</a>
+    <a href="cocktail.html?name=Margarita" class="card">Margarita</a>
+    <a href="cocktail.html?name=Cosmopolitan" class="card">Cosmopolitan</a>
+    <a href="cocktail.html?name=BlueLagoon" class="card">Blue Lagoon</a>
+    <a href="cocktail.html?name=PinaColada" class="card">Pina Colada</a>
+    <a href="cocktail.html?name=MaiTai" class="card">Mai Tai</a>
+    <a href="cocktail.html?name=OldFashioned" class="card">Old Fashioned</a>
+    <a href="cocktail.html?name=Negroni" class="card">Negroni</a>
+    <a href="cocktail.html?name=Daiquiri" class="card">Daiquiri</a>
+    <a href="cocktail.html?name=WhiskeySour" class="card">Whiskey Sour</a>
   </div>
 </section>
 
 <section class="section">
   <h2>Packages</h2>
   <div class="cards">
-    <a href="basic.html" class="card">
-      <h3>Basic</h3>
-      <p>1 Bartender | 50 Cocktails | Free Glasses</p>
-    </a>
-    <a href="standard.html" class="card">
-      <h3>Standard</h3>
-      <p>1 Bartender | 100 Cocktails | Free Glasses & Music</p>
-    </a>
-    <a href="premium.html" class="card highlight">
-      <h3>Premium</h3>
-      <p>2 Bartenders | 200 Cocktails | Free Glasses, DJ, Party Lights & Dance</p>
-    </a>
+    <a href="package.html?type=basic" class="card">Basic</a>
+    <a href="package.html?type=standard" class="card">Standard</a>
+    <a href="package.html?type=premium" class="card highlight">Premium</a>
   </div>
 </section>
 
 <a href="https://wa.me/917010022388" class="whatsapp-float">💬</a>
+
 <footer>© Logu Bartending</footer>
 
 <script src="script.js"></script>
