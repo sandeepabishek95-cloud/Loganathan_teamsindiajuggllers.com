@@ -1,27 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Package Details</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logu Bartending Package</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body id="body">
+<body>
 
 <nav class="navbar">
-<a href="index.html" class="back-btn">⬅ Home</a>
-<div class="nav-actions">
-<a href="tel:+917010022388" class="call-btn">📞</a>
-<a href="https://wa.me/917010022388" class="wa-btn">💬</a>
-</div>
+  <a href="index.html" class="back-btn">⬅ Home</a>
+  <div class="nav-actions">
+    <a href="tel:+917010022388" class="call-btn">📞</a>
+    <a href="https://wa.me/917010022388" class="wa-btn">💬</a>
+  </div>
 </nav>
 
-<div id="package-details" class="section"></div>
+<div class="package-section">
+  <h1 id="packageTitle"></h1>
+  <div class="package-content">
+    <div class="package-details">
+      <ul id="packageFeatures"></ul>
+    </div>
+    <div class="package-gallery" id="packageGallery"></div>
+  </div>
+</div>
 
-<a href="https://wa.me/917010022388" class="whatsapp-float">💬</a>
 <footer>© Logu Bartending</footer>
 
-<script src="script.js"></script>
-<script>
-  loadPackagePage();
-</script>
+<script src="package.js"></script>
 </body>
 </html>
