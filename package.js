@@ -15,7 +15,7 @@ const packages = {
       "https://source.unsplash.com/600x400/?bartender",
       "https://source.unsplash.com/600x400/?party"
     ],
-    bg: "linear-gradient(135deg, #0f172a, #020617)" // simple background
+    bg: "linear-gradient(135deg, #0f172a, #020617)"
   },
   standard: {
     title: "Standard Package",
@@ -32,7 +32,7 @@ const packages = {
       "https://source.unsplash.com/600x400/?bartender",
       "https://source.unsplash.com/600x400/?event"
     ],
-    bg: "linear-gradient(135deg, #1c1f3a, #0f172a)" // slightly more premium
+    bg: "linear-gradient(135deg, #1c1f3a, #0f172a)"
   },
   premium: {
     title: "Premium Package",
@@ -52,26 +52,23 @@ const packages = {
       "https://source.unsplash.com/600x400/?premium,party",
       "https://source.unsplash.com/600x400/?dance,party"
     ],
-    bg: "linear-gradient(135deg, #ff4d6d, #1c1f3a)" // vibrant premium look
+    bg: "linear-gradient(135deg, #ff4d6d, #1c1f3a)"
   }
 };
 
-// Populate package dynamically
 const pkg = packages[type];
 document.getElementById("packageTitle").innerText = pkg.title;
 document.body.style.background = pkg.bg;
 
-// Add features
 const featuresList = document.getElementById("packageFeatures");
-pkg.features.forEach(f=>{
+pkg.features.forEach(f => {
   const li = document.createElement("li");
   li.innerText = f;
   featuresList.appendChild(li);
 });
 
-// Add gallery images
 const galleryDiv = document.getElementById("packageGallery");
-pkg.images.forEach(src=>{
+pkg.images.forEach(src => {
   const img = document.createElement("img");
   img.src = src;
   img.alt = pkg.title;
