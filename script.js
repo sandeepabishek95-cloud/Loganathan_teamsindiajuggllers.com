@@ -1,67 +1,53 @@
-// Dynamic Day/Night background
-const hour = new Date().getHours();
-const body = document.body;
-if(hour >=6 && hour <18){
-    body.style.backgroundImage = "url('assets/bg-morning.jpg')";
-}else{
-    body.style.backgroundImage = "url('assets/bg-night.jpg')";
-}
-body.style.backgroundSize = "cover";
-body.style.backgroundPosition = "center";
-
-// Cocktail list
 const cocktails = [
-  {name:"Mojito", ingredients:["Rum","Lime Juice","Mint","Sugar Syrup","Soda Water"]},
-  {name:"Margarita", ingredients:["Tequila","Lime Juice","Triple Sec","Salt"]},
+  {name:"Mojito", ingredients:["White Rum","Sugar","Lime","Soda Water","Mint"]},
+  {name:"Margarita", ingredients:["Tequila","Triple Sec","Lime Juice","Salt"]},
   {name:"Cosmopolitan", ingredients:["Vodka","Triple Sec","Cranberry Juice","Lime Juice"]},
-  {name:"Blue Lagoon", ingredients:["Vodka","Blue Curacao","Lemonade"]},
-  {name:"Pina Colada", ingredients:["Rum","Coconut Cream","Pineapple Juice"]},
-  // You can add more cocktails with ingredients here
+  {name:"Blue Lagoon", ingredients:["Vodka","Blue Curacao","Lemonade","Ice"]},
+  {name:"Pina Colada", ingredients:["White Rum","Coconut Cream","Pineapple Juice","Pineapple"]},
+  {name:"Old Fashioned", ingredients:["Bourbon","Sugar","Bitters","Orange Twist"]},
+  {name:"Negroni", ingredients:["Gin","Campari","Sweet Vermouth"]},
+  {name:"Whiskey Sour", ingredients:["Whiskey","Lemon Juice","Sugar","Egg White"]},
+  {name:"Daiquiri", ingredients:["Rum","Lime Juice","Sugar Syrup"]},
+  {name:"Mai Tai", ingredients:["White Rum","Dark Rum","Orange Curacao","Lime Juice","Orgeat Syrup"]},
+  {name:"Martini", ingredients:["Gin","Dry Vermouth","Olive"]},
+  // Add as many as you want
 ];
 
-// Load cocktails on homepage
-const cocktailCards = document.getElementById("cocktailCards");
-if(cocktailCards){
-  cocktails.forEach(c => {
-    const a = document.createElement("a");
+// Dynamic Cocktail Cards for index.html
+const cocktailCards = document.getElementById('cocktailCards');
+const searchInput = document.getElementById('cocktailSearch');
+
+function displayCocktails(filter="") {
+  cocktailCards.innerHTML = "";
+  cocktails.filter(c => c.name.toLowerCase().includes(filter.toLowerCase()) || c.ingredients.some(i=>i.toLowerCase().includes(filter.toLowerCase())))
+  .forEach(c => {
+    const a = document.createElement('a');
     a.href = `cocktail.html?name=${encodeURIComponent(c.name)}`;
-    a.className = "card";
-    a.innerHTML = `<h3>${c.name}</h3>`;
+    a.classList.add('card');
+    a.innerHTML = `<h3>${c.name}</h3><p>${c.ingredients.slice(0,3).join(", ")}...</p>`;
     cocktailCards.appendChild(a);
   });
 }
+displayCocktails();
 
 // Search functionality
-const searchInput = document.getElementById("cocktailSearch");
 if(searchInput){
-  searchInput.addEventListener("input", () => {
-    const term = searchInput.value.toLowerCase();
-    cocktailCards.innerHTML = "";
-    cocktails.filter(c => c.name.toLowerCase().includes(term) || c.ingredients.join(" ").toLowerCase().includes(term))
-             .forEach(c => {
-                const a = document.createElement("a");
-                a.href = `cocktail.html?name=${encodeURIComponent(c.name)}`;
-                a.className = "card";
-                a.innerHTML = `<h3>${c.name}</h3>`;
-                cocktailCards.appendChild(a);
-             });
+  searchInput.addEventListener('input',(e)=>{
+    displayCocktails(e.target.value);
   });
 }
 
-// Cocktail page
+// Cocktail Page Dynamic Ingredients
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
+
 if(name){
-  const title = document.getElementById("title");
-  const video = document.getElementById("video");
+  document.getElementById("title").innerText = name;
+  document.getElementById("video").src = "https://www.w3schools.com/html/mov_bbb.mp4";
+  const cocktail = cocktails.find(c=>c.name===name);
   const list = document.getElementById("ingredients");
-
-  if(title) title.innerText = name;
-  if(video) video.src = "https://www.w3schools.com/html/mov_bbb.mp4"; // Placeholder video
-
-  const cocktailData = cocktails.find(c => c.name === name);
-  if(cocktailData && list){
-    cocktailData.ingredients.forEach(i => {
+  if(cocktail){
+    cocktail.ingredients.forEach(i=>{
       const li = document.createElement("li");
       li.innerText = i;
       list.appendChild(li);
