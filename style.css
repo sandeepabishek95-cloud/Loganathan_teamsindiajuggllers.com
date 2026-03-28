@@ -1,11 +1,11 @@
-/* ===================== RESET ===================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ===================== BODY ===================== */
+/* BODY */
 body {
   font-family: 'Poppins', sans-serif;
   background: radial-gradient(circle, #0f172a, #020617);
@@ -14,7 +14,7 @@ body {
   transition: background 1s ease;
 }
 
-/* ===================== NAVBAR ===================== */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@ body {
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
 }
 
 .logo {
@@ -63,10 +63,11 @@ body {
   color: white;
 }
 
-/* ===================== HERO ===================== */
+/* HERO */
 .hero {
   text-align: center;
   padding: 90px 20px;
+  background: linear-gradient(135deg, #1c1f3a, #0f172a);
 }
 
 .hero h1 {
@@ -74,21 +75,28 @@ body {
   background: linear-gradient(to right, gold, orange);
   -webkit-background-clip: text;
   color: transparent;
+  animation: slideIn 1s ease forwards;
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 10px;
-  color: #f5f5f5;
+  color: #f0f0f0;
 }
 
-/* ===================== SECTIONS ===================== */
+/* SECTION */
 .section {
   padding: 50px 20px;
   text-align: center;
 }
 
-/* ===================== CARDS ===================== */
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: gold;
+}
+
+/* CARDS */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -104,6 +112,7 @@ body {
   text-decoration: none;
   font-size: 18px;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .card:hover {
@@ -115,13 +124,12 @@ body {
   border: 2px solid gold;
 }
 
-/* ===================== VIDEO PAGE ===================== */
+/* VIDEO PAGE */
 .video-layout {
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
   padding: 30px;
-  justify-content: center;
 }
 
 .video {
@@ -131,22 +139,27 @@ body {
 
 .video video {
   width: 100%;
-  max-height: 500px;
+  height: 500px;
   border-radius: 15px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video video:hover {
+  transform: scale(1.02);
 }
 
 .ingredients {
   flex: 1;
-  min-width: 250px;
   background: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 15px;
-  animation: fadeIn 1s ease;
+  min-width: 200px;
 }
 
 .ingredients h2 {
   margin-bottom: 15px;
+  color: gold;
 }
 
 .ingredients li {
@@ -154,10 +167,18 @@ body {
   font-size: 16px;
 }
 
-/* ===================== PACKAGE PAGE ===================== */
+/* PACKAGE PAGE */
 .package-section {
   padding: 50px 20px;
   text-align: center;
+}
+
+.package-section h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #ff4d6d, gold);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .package-content {
@@ -165,7 +186,7 @@ body {
   flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
-  margin-top: 20px;
+  align-items: flex-start;
 }
 
 .package-details {
@@ -174,20 +195,24 @@ body {
   background: rgba(255, 255, 255, 0.05);
   padding: 25px;
   border-radius: 15px;
-  text-align: left;
-  animation: fadeIn 1s ease;
 }
 
-.package-details ul li {
+.package-details ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+.package-details li {
   margin: 12px 0;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .package-gallery {
   flex: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 15px;
+  min-width: 300px;
 }
 
 .package-gallery img {
@@ -195,14 +220,14 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .package-gallery img:hover {
   transform: scale(1.05);
 }
 
-/* ===================== GALLERY ===================== */
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -215,14 +240,14 @@ body {
   height: 200px;
   object-fit: cover;
   border-radius: 12px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .gallery img:hover {
   transform: scale(1.05);
 }
 
-/* ===================== BACK BUTTON ===================== */
+/* BACK BUTTON */
 .back-btn {
   display: inline-block;
   margin: 20px;
@@ -236,10 +261,11 @@ body {
 }
 
 .back-btn:hover {
-  transform: scale(1.05);
+  background: orange;
+  color: white;
 }
 
-/* ===================== FLOATING WHATSAPP ===================== */
+/* FLOAT BUTTON */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -248,32 +274,37 @@ body {
   padding: 18px;
   border-radius: 50%;
   font-size: 20px;
-  transition: transform 0.3s;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-}
-
-/* ===================== FOOTER ===================== */
+/* FOOTER */
 footer {
   text-align: center;
   padding: 20px;
   color: #aaa;
 }
 
-/* ===================== ANIMATIONS ===================== */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
+/* ANIMATIONS */
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* ===================== RESPONSIVE ===================== */
-@media (max-width: 768px) {
-  .video-layout, .package-content {
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .video-layout {
     flex-direction: column;
   }
-  .package-details {
-    text-align: center;
+  .package-content {
+    flex-direction: column;
+  }
+  .package-gallery {
+    grid-template-columns: 1fr;
+  }
+  .cards {
+    grid-template-columns: 1fr;
   }
 }
