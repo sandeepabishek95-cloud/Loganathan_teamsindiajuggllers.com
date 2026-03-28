@@ -5,63 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Logu Bartending</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="body">
+<body>
 
 <nav class="navbar">
   <div class="logo">
     <img src="assets/logo.png" alt="Logo">
     <span>Logu Bartending</span>
   </div>
+
   <div class="nav-actions">
     <a href="tel:+917010022388" class="call-btn">📞</a>
     <a href="https://wa.me/917010022388" class="wa-btn">💬</a>
   </div>
 </nav>
 
-<header class="hero" id="hero">
+<header class="hero">
   <h1>Luxury Cocktail Experience</h1>
   <p>5-Star Hotel Style Bartending</p>
 </header>
 
 <section class="section">
-  <h2>Search Cocktails</h2>
-  <input type="text" id="cocktail-search" placeholder="Type a cocktail name..." />
-  <div class="cards" id="cocktail-search-results"></div>
+  <h2>Signature Cocktails</h2>
+  <div class="search-bar">
+    <input type="text" id="cocktailSearch" placeholder="Search cocktails by name or ingredient...">
+  </div>
+  <div class="cards" id="cocktailCards">
+    <!-- Cocktail cards dynamically loaded from JS -->
+  </div>
 </section>
 
 <section class="section">
   <h2>Packages</h2>
   <div class="cards">
-    <a href="package.html?package=basic" class="card">
+    <a href="basic.html" class="card">
       <h3>Basic</h3>
-      <p>1 bartender, 50 cocktails, free glasses</p>
+      <p>1 Bartender | 50 Cocktails | Free Glasses</p>
     </a>
-    <a href="package.html?package=standard" class="card">
+    <a href="standard.html" class="card">
       <h3>Standard</h3>
-      <p>1 bartender, 100 cocktails, free glasses, music</p>
+      <p>1 Bartender | 100 Cocktails | Free Glasses & Music</p>
     </a>
-    <a href="package.html?package=premium" class="card highlight">
+    <a href="premium.html" class="card highlight">
       <h3>Premium</h3>
-      <p>2 bartenders, 200 cocktails, free glasses, DJ music, party lights, dance events</p>
+      <p>2 Bartenders | 200 Cocktails | Free Glasses, DJ, Party Lights & Dance</p>
     </a>
   </div>
-</section>
-
-<section class="section" id="reviews-section">
-  <h2>Customer Reviews</h2>
-  <div id="reviews" class="cards"></div>
 </section>
 
 <a href="https://wa.me/917010022388" class="whatsapp-float">💬</a>
 <footer>© Logu Bartending</footer>
 
 <script src="script.js"></script>
-<script>
-  loadHomePage();
-</script>
 </body>
 </html>
